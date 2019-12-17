@@ -24,7 +24,7 @@ case class Payload (
                    commit: Commit,
                    description: String,
                    distinct_size: Long,
-
+                   forkee: Forkee,
                    head: String,
                    issue: Issue
               )
