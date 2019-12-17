@@ -24,6 +24,12 @@
             <artifactId>spark-hive_2.10</artifactId>
             <version>1.6.0</version>
         </dependency>
+        <dependency>
+            <groupId>org.scalatest</groupId>
+            <artifactId>scalatest_2.10</artifactId>
+            <version>3.1.0</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -37,6 +43,8 @@
             </plugins>
         </pluginManagement>
     </build>
+
+
 
 
 </project>
