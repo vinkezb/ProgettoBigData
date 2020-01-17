@@ -1,8 +1,5 @@
-
-
-class Issue(
-                assignee: Assignee,
-                assignees: Array[Assignees],
+class Issue(    assignee: Assignee,
+                assignees: Array[Assignee],
                 author_association: String,
                 body: String,
                 closed_at: String,

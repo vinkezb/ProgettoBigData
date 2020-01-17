@@ -21,9 +21,9 @@ object MainClasseKevin {
      val json_row = parse(row)
      (compact(json_row), compact(json_row))}
      .collect().foreach{println(_)}
-
-//   val JsonDfActor = sqlContext.read.json("C:\\Users\\kevin\\Desktop\\json\\actor.json");
-//   val rdd = JsonDfActor.as[Actor].rdd
+//
+//   val JsonDfRepo = sqlContext.read.json("C:\\Users\\kevin\\Desktop\\json\\repo.json");
+//   val rdd = JsonDfRepo.as[Repo].rdd
 //   rdd.foreach(println)
 
  }

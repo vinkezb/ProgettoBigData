@@ -16,5 +16,4 @@ case class Creator(
                   subscriptions_url: String,
                   `type`: String,
                   url: String
-
                   )
