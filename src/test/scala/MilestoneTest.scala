@@ -12,7 +12,7 @@ class MilestoneTest extends FlatSpec with Matchers {
     val sqlContext = new SQLContext(sc)
     import sqlContext.implicits._
 
-    val JsonDfMilestone = sqlContext.read.json("C:\\Users\\kevin\\Desktop\\json\\milestone.json");
+    val JsonDfMilestone = sqlContext.read.json("src/test/resources/milestone.json");
     val rdd = JsonDfMilestone.as[Milestone].rdd
     rdd.foreach(println)
 

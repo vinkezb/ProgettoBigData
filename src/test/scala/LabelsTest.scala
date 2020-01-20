@@ -12,7 +12,7 @@ class LabelsTest extends FlatSpec with Matchers {
     val sqlContext = new SQLContext(sc)
     import sqlContext.implicits._
 
-    val JsonDfLabels = sqlContext.read.json("C:\\Users\\kevin\\Desktop\\json\\labels.json");
+    val JsonDfLabels = sqlContext.read.json("src/test/resources/labels.json");
     val rdd = JsonDfLabels.as[Labels].rdd
     rdd.foreach(println)
 

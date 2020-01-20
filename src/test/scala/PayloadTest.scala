@@ -12,7 +12,7 @@ class PayloadTest extends FlatSpec with Matchers {
     val sqlContext = new SQLContext(sc)
     import sqlContext.implicits._
 
-    val JsonDfPayload = sqlContext.read.json("C:\\Users\\kevin\\Desktop\\json\\payload.json");
+    val JsonDfPayload = sqlContext.read.json("src/test/resources/payload.json");
     val rdd = JsonDfPayload.as[Payload].rdd
     rdd.foreach(println)
 

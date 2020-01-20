@@ -12,7 +12,7 @@ class RepoTest extends FlatSpec with Matchers {
     val sqlContext = new SQLContext(sc)
     import sqlContext.implicits._
 
-    val JsonDfRepo = sqlContext.read.json("C:\\Users\\kevin\\Desktop\\json\\repo.json");
+    val JsonDfRepo = sqlContext.read.json("src/test/resources/repo.json");
     val rdd = JsonDfRepo.as[Repo].rdd
     rdd.foreach(println)
 

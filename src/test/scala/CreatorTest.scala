@@ -12,7 +12,7 @@ class CreatorTest extends FlatSpec with Matchers {
     val sqlContext = new SQLContext(sc)
     import sqlContext.implicits._
 
-    val JsonDfCreator = sqlContext.read.json("C:\\Users\\kevin\\Desktop\\json\\creator.json");
+    val JsonDfCreator = sqlContext.read.json("src/test/resources/creator.json");
     val rdd = JsonDfCreator.as[Creator].rdd
     rdd.foreach(println)
 

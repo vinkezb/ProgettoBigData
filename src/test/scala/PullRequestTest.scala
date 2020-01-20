@@ -12,7 +12,7 @@ class PullRequestTest extends FlatSpec with Matchers {
     val sqlContext = new SQLContext(sc)
     import sqlContext.implicits._
 
-    val JsonDfPullRequest = sqlContext.read.json("C:\\Users\\kevin\\Desktop\\json\\pull_request.json");
+    val JsonDfPullRequest = sqlContext.read.json("src/test/resources/pull_request.json");
     val rdd = JsonDfPullRequest.as[Pull_request].rdd
     rdd.foreach(println)
 

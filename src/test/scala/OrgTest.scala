@@ -12,7 +12,7 @@ class OrgTest extends FlatSpec with Matchers {
     val sqlContext = new SQLContext(sc)
     import sqlContext.implicits._
 
-    val JsonDfOrg = sqlContext.read.json("C:\\Users\\kevin\\Desktop\\json\\org.json");
+    val JsonDfOrg = sqlContext.read.json("src/test/resources/org.json");
     val rdd = JsonDfOrg.as[Org].rdd
     rdd.foreach(println)
 

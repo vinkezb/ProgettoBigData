@@ -12,7 +12,7 @@ class ActorTest extends  FlatSpec  with Matchers {
     val sqlContext = new SQLContext(sc)
     import sqlContext.implicits._
 
-    val JsonDfActor = sqlContext.read.json("C:\\Users\\kevin\\Desktop\\json\\actor.json");
+    val JsonDfActor = sqlContext.read.json("src/test/resources/actor.json");
     val rdd = JsonDfActor.as[Actor].rdd
     rdd.foreach(println)
 

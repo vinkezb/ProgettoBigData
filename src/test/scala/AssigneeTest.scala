@@ -12,7 +12,7 @@ class AssigneeTest extends FlatSpec with Matchers {
     val sqlContext = new SQLContext(sc)
     import sqlContext.implicits._
 
-    val JsonDfAssignee = sqlContext.read.json("C:\\Users\\kevin\\Desktop\\json\\assignee.json");
+    val JsonDfAssignee = sqlContext.read.json("src/test/resources/assignee.json");
     val rdd = JsonDfAssignee.as[Assignee].rdd
     rdd.foreach(println)
 

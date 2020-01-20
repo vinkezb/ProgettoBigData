@@ -12,7 +12,7 @@ class UserTest extends FlatSpec with Matchers {
     val sqlContext = new SQLContext(sc)
     import sqlContext.implicits._
 
-    val JsonDfUser = sqlContext.read.json("C:\\Users\\kevin\\Desktop\\json\\user.json");
+    val JsonDfUser = sqlContext.read.json("src/test/resources/user.json");
     val rdd = JsonDfUser.as[User].rdd
     rdd.foreach(println)
 
