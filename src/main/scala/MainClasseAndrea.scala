@@ -8,11 +8,18 @@ object MainClasseAndrea {
     val sc = new SparkContext(conf)
     val sqlContext = new HiveContext(sc)
     val jsonDF = sqlContext.read.json("C:/Users/Studente/Documents/2018-03-01-0.json")
-    jsonDF.dtypes.foreach(x => println(x))
+    import sqlContext.implicits._
+    /* jsonDF.dtypes.foreach(x => println(x))
     println("Print nuovo")
     println(jsonDF.toString())
     println(jsonDF.show())
+*/
+    //   val JsonDfActor = sqlContext.read.json("C:\\Users\\kevin\\Desktop\\json\\actor.json");
+    //   val rdd = JsonDfActor.as[Actor].rdd
+    //   rdd.foreach(println)
 
+    val jsonDFPayloadComment = sqlContext.read.json("C:\\Users\\Studente\\Desktop\\json");
+    val RDDPayloadComment = jsonDFPayloadComment.as[Comment].rdd
 
   }
 }

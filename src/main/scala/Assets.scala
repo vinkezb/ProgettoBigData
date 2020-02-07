@@ -9,5 +9,6 @@ case class Assets(
                  size: Long,
                  state: String,
                  updated_at: String,
-                 uploader: Uploader
+                 uploader: Uploader,
+                 url: String
                  )
