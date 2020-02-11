@@ -55,7 +55,7 @@ object MainClasseAndrea {
       in.setRequestMethod("GET");
       in.setRequestProperty("User-Agent", "")
       val zis = new GZIPInputStream(in.getInputStream)
-
+      println("ciao")
       Files.copy(zis, Paths.get(FILE_NAME), StandardCopyOption.REPLACE_EXISTING);
 
 
