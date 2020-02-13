@@ -1,6 +1,6 @@
 case class Labels(
                  color: String,
-                 `default`: Boolean,
+//                 `default`: Boolean,
                  id: Long,
                  name: String,
                  url: String
