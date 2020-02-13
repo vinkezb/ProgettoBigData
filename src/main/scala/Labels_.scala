@@ -1,6 +1,6 @@
-case class Labels(
+case class Labels_(
                  color: String,
-                 `default`: Boolean,
+                 defaultLabels: Option[Boolean],
                  id: Long,
                  name: String,
                  url: String

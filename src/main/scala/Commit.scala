@@ -1,5 +1,5 @@
 case class Commit(
-                 Author: Array[Author],
+                 author: Author,
                  distinct: Boolean,
                  message: String,
                  sha: String,

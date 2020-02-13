@@ -1,3 +1,5 @@
+import java.io.Serializable
+
 class Issue(    assignee: Assignee,
                 assignees: Array[Assignee],
                 author_association: String,
@@ -25,10 +27,10 @@ class Issue(    assignee: Assignee,
 
   extends Product
     //For Spark it has to be Serializable
-    with Serializable {
+  with Serializable{
   def canEqual(that: Any) = that.isInstanceOf[Issue]
 
-  def productArity = 23 // number of columns
+  def productArity = 22 // number of columns
 
   def productElement(idx: Int) = idx match {
     case 0 => assignee

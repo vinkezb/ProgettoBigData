@@ -1,6 +1,6 @@
 class Forkee(
                    archive_url: String,
-                   archived: Boolean,
+                   archived: Option[Boolean],
                    assignees_url: String,
                    blobs_url: String,
                    branches_url: String,
@@ -17,24 +17,24 @@ class Forkee(
                    description: String,
                    downloads_url: String,
                    events_url: String,
-                   fork: Boolean,
-                   forks: Long,
-                   forks_count: Long,
+                   fork: Option[Boolean],
+                   forks: Option[Long],
+                   forks_count: Option[Long],
                    forks_url: String,
                    full_name: String,
                    git_commits_url: String,
                    git_refs_url: String,
                    git_tags_url: String,
                    git_url: String,
-                   has_downloads: Boolean,
-                   has_issues: Boolean,
-                   has_pages: Boolean,
-                   has_projects: Boolean,
-                   has_wiki: Boolean,
+                   has_downloads: Option[Boolean],
+                   has_issues: Option[Boolean],
+                   has_pages: Option[Boolean],
+                   has_projects: Option[Boolean],
+                   has_wiki: Option[Boolean],
                    homepage: String,
                    hooks_url: String,
                    html_url: String,
-                   id: Long,
+                   id: Option[Long],
                    issue_comment_url: String,
                    issue_events_url: String,
                    issues_url: String,
@@ -48,17 +48,17 @@ class Forkee(
                    mirror_url: String,
                    name: String,
                    notifications_url: String,
-                   open_issues: Long,
-                   open_issues_count: Long,
+                   open_issues: Option[Long],
+                   open_issues_count: Option[Long],
                    owner: Owner,
-                   `private`: Boolean,
-                   public: Boolean,
+//                   `private`: Boolean,
+//                   `public`: Boolean,
                    pulls_url: String,
                    pushed_at: String,
                    releases_url: String,
-                   size: Long,
+                   size: Option[Long],
                    ssh_url: String,
-                   stargazers_count: Long,
+                   stargazers_count: Option[Long],
                    stargazers_url: String,
                    statuses_url: String,
                    subscribers_url: String,
@@ -69,8 +69,8 @@ class Forkee(
                    trees_url: String,
                    updated_at: String,
                    url: String,
-                   watchers: Long,
-                   watchers_count: Long
+                   watchers: Option[Long],
+                   watchers_count: Option[Long]
                  )
 
   extends Product with Serializable {  //For Spark it has to be Serializable
@@ -131,8 +131,8 @@ class Forkee(
     case 48 => open_issues
     case 49 => open_issues_count
     case 50 => owner
-    case 51 => `private`
-    case 52 => public
+//    case 51 => `private`
+//    case 52 => `public`
     case 53 => pulls_url
     case 54 => pushed_at
     case 55 => releases_url

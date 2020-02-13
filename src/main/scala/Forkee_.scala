@@ -51,8 +51,8 @@ class Forkee_(
                     open_issues: Long,
                     open_issues_count: Long,
                     owner: Owner,
-                    privateForkee: Boolean,
-                    public: Boolean,
+                    `private`: Boolean,
+                    `public`: Boolean,
                     pulls_url: String,
                     pushed_at: String,
                     releases_url: String,
@@ -131,8 +131,8 @@ class Forkee_(
       case 48 => open_issues
       case 49 => open_issues_count
       case 50 => owner
-      case 51 => privateForkee
-      case 52 => public
+      case 51 => `private`
+      case 52 => `public`
       case 53 => pulls_url
       case 54 => pushed_at
       case 55 => releases_url
