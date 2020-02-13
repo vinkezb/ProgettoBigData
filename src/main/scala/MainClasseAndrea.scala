@@ -17,20 +17,22 @@ object MainClasseAndrea {
     val sqlContext = new HiveContext(sc)
 
     val url = "http://data.githubarchive.org/" + readProperties().getProperty("anno") + "-" + readProperties().getProperty("mese") + "-" + readProperties().getProperty("giorno") + "-" + "0.json.gz"
-    connection(url)
-    //val jsonDF = sqlContext.read.json("C:/Users/Studente/Documents/" +  "-03-01-0.json")
-    import sqlContext.implicits._
-    /*jsonDF.dtypes.foreach(x => println(x))
-        println("Print nuovo")
-        println(jsonDF.toString())
-        println(jsonDF.show())
-    */
+    val unzippedFile = connection(url) //download and unzip file
+    val jsonDF = sqlContext.read.json(System.getProperty("user.dir") +"\\src\\test\\resources\\test.txt")
+//    import sqlContext.implicits._
+//    jsonDF.dtypes.foreach(x => println(x))
+//        println("Print nuovo")
+//        println(jsonDF.toString())
+//        println(jsonDF.show())
+
     //   val JsonDfActor = sqlContext.read.json("C:\\Users\\kevin\\Desktop\\json\\actor.json");
     //   val rdd = JsonDfActor.as[Actor].rdd
     //   rdd.foreach(println)
 
     // val jsonDFPayloadComment = sqlContext.read.json("C:\\Users\\Studente\\Desktop\\json");
     // val RDDPayloadComment = jsonDFPayloadComment.as[Comment].rdd
+
+
 
   }
 

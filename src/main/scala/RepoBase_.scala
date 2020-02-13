@@ -1,6 +1,6 @@
 import java.io.Serializable
 
-case class RepoBase_(
+ class RepoBase_(
                      archive_url: String,
                      archived: Boolean,
                      assignees_url: String,

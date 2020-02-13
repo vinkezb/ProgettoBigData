@@ -1,7 +1,8 @@
 import java.io.Serializable
-import java.sql.Array
 
-case class PullRequest(
+
+
+class PullRequest(
                       _links: LinksPullRequest,
                       addictions: Long,
                       assignee: Assignee,

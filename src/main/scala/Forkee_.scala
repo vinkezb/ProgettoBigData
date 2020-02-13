@@ -1,4 +1,4 @@
-case class Forkee_(
+class Forkee_(
                     archive_url: String,
                     archived: Boolean,
                     assignees_url: String,
