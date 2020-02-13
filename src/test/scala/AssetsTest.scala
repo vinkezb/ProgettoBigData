@@ -1,21 +1,22 @@
-import org.apache.spark.{SparkConf, SparkContext}
 import org.apache.spark.sql.SQLContext
+import org.apache.spark.{SparkConf, SparkContext}
 import org.scalatest.{FlatSpec, Matchers}
 
-class PayloadTest extends FlatSpec with Matchers {
+class AssetsTest extends  FlatSpec  with Matchers {
 
   "A Stack" should "pop values in last-in-first-out order" in {
     val conf = new SparkConf().setMaster("local[2]")
-      .setAppName("PayloadTest")
+      .setAppName("AssetsTest")
 
     val sc = new SparkContext(conf)
     val sqlContext = new SQLContext(sc)
     import sqlContext.implicits._
 
-    val JsonDfPayload = sqlContext.read.json("src/test/resources/payload.json");
-    val rdd = JsonDfPayload.as[Payload].rdd
+    val JsonDfAssets = sqlContext.read.json("src/test/resources/assets.json");
+    val rdd = JsonDfAssets.as[Assets].rdd
     rdd.foreach(println)
 
     assert(true)
   }
 }
+

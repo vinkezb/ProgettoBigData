@@ -1,5 +1,5 @@
 case class Assets(
-                 browserl_download_url: String,
+//                 browserl_download_url: String,
                  content_type: String,
                  created_at: String,
                  download_count: Long,

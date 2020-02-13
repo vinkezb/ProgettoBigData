@@ -13,7 +13,7 @@ case class Comment(
                   original_commit_id: String,
                   original_position: Long,
                   path: String,
-                  position: Long,
+                  position: String,
                   pull_request_review_id: Long,
                   pull_request_url: String,
                   updated_at: String,
