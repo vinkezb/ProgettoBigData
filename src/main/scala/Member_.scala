@@ -1,4 +1,4 @@
-case class Member (
+case class Member_(
                     avatar_url: String,
                     events_url: String,
                     followers_url: String,
@@ -14,10 +14,6 @@ case class Member (
                     site_admin: Boolean,
                     starred_url: String,
                     subscriptions_url: String,
-                    `type`: String,
+                    typeMember: String,
                     url: String
                   )
-
-
-
-

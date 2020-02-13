@@ -1,5 +1,5 @@
-case class Pages (
 
+case class Pages (
                  action: String,
                  html_url: String,
                  page_name: String,

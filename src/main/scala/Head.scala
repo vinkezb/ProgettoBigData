@@ -1,3 +1,7 @@
 case class Head(
-               label: String
+               label: String,
+               ref: String,
+               repo: RepoHead,
+               sha: String,
+               user: User
                )

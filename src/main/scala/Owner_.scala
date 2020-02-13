@@ -1,4 +1,4 @@
-case class Assignee(
+case class Owner_(
                    avatar_url: String,
                    events_url: String,
                    followers_url: String,
@@ -14,6 +14,6 @@ case class Assignee(
                    site_admin: Boolean,
                    starred_url: String,
                    subscriptions_url: String,
-                   `type`: String,
+                   typeOwner: String,
                    url: String
-                   )
+                 )
