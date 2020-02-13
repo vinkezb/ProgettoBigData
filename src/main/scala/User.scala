@@ -13,5 +13,7 @@ case class User(
                repos_url: String,
                site_admin: Boolean,
                starred_url: String,
-               subscriptions_url: String
+               subscriptions_url: String,
+               `type`: String,
+               url: String
                )

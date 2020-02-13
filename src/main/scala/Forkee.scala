@@ -73,12 +73,11 @@ class Forkee(
                    watchers_count: Long
                  )
 
-  extends Product
-    //For Spark it has to be Serializable
-    with Serializable {
+  extends Product with Serializable {  //For Spark it has to be Serializable
+
   def canEqual(that: Any) = that.isInstanceOf[Forkee]
 
-  def productArity = 23 // number of columns
+  def productArity = 71 // number of columns
 
   def productElement(idx: Int) = idx match {
     case 0 => archive_url

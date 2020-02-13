@@ -4,5 +4,4 @@ case class Commit(
                  message: String,
                  sha: String,
                  url: String
-
                  )

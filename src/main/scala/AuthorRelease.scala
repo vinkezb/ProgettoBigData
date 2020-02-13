@@ -1,5 +1,4 @@
 case class AuthorRelease (
-
                          avatar_url: String,
                          events_url: String,
                          followers_url: String,
@@ -17,7 +16,6 @@ case class AuthorRelease (
                          subscriptions_url: String,
                          `type`: String,
                          url: String
-
                          )
 
 

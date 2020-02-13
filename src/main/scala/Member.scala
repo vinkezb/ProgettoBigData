@@ -16,7 +16,6 @@ case class Member (
                     subscriptions_url: String,
                     `type`: String,
                     url: String
-
                   )
 
 

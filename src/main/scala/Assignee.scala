@@ -16,5 +16,4 @@ case class Assignee(
                    subscriptions_url: String,
                    `type`: String,
                    url: String
-
                    )
