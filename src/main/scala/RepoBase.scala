@@ -53,7 +53,7 @@ class RepoBase(
                    open_issues: Long,
                    open_issues_count: Long,
                    owner: Owner,
-                   `private`: Boolean,
+//                   `private`: Boolean,
                    pulls_url: String,
                    pushed_at: String,
                    releases_url: String,
@@ -132,7 +132,7 @@ class RepoBase(
     case 49 => open_issues
     case 50 => open_issues_count
     case 51 => owner
-    case 52 => `private`
+//    case 52 => `private`
     case 53 => pulls_url
     case 54 => pushed_at
     case 55 => releases_url

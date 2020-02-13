@@ -14,6 +14,6 @@ case class Uploader(
                    site_admin: Boolean,
                    starred_url: String,
                    subscriptions_url: String,
-                   `type`: String,
+//                   `type`: String,
                    url: String
                    )
