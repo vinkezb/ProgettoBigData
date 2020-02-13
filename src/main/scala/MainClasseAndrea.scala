@@ -1,13 +1,16 @@
-import java.io.{BufferedInputStream, BufferedReader, File, FileInputStream, FileOutputStream, IOException, InputStream, InputStreamReader}
+import java.io.{BufferedInputStream, BufferedReader, File, FileInputStream, FileOutputStream, FileWriter, IOException, InputStream, InputStreamReader, StringWriter}
 import java.net.{HttpURLConnection, URI, URL}
 import java.nio.channels.{Channels, ReadableByteChannel}
 import java.nio.file.{Files, Path, Paths, StandardCopyOption}
 import java.util.Properties
 import java.util.zip.{GZIPInputStream, ZipInputStream}
 
+import com.opencsv.CSVWriter
 import org.apache.commons.io.FileUtils
+import org.apache.spark.sql.catalyst.ScalaReflection
 import org.apache.spark.{SparkConf, SparkContext}
 import org.apache.spark.sql.hive.HiveContext
+import org.apache.spark.sql.types.StructType
 
 object MainClasseAndrea {
   def main(args: Array[String]) = {
@@ -15,16 +18,26 @@ object MainClasseAndrea {
     var conf = new SparkConf().setMaster("local[2]").setAppName("CountingSheep")
     val sc = new SparkContext(conf)
     val sqlContext = new HiveContext(sc)
-
+    val schema = ScalaReflection.schemaFor[Wrapper].dataType.asInstanceOf[StructType]
     val url = "http://data.githubarchive.org/" + readProperties().getProperty("anno") + "-" + readProperties().getProperty("mese") + "-" + readProperties().getProperty("giorno") + "-" + "0.json.gz"
     val unzippedFile = connection(url) //download and unzip file
-    val jsonDF = sqlContext.read.json(System.getProperty("user.dir") +"\\src\\test\\resources\\test.txt")
-//    import sqlContext.implicits._
-//    jsonDF.dtypes.foreach(x => println(x))
-//        println("Print nuovo")
-//        println(jsonDF.toString())
-//        println(jsonDF.show())
+    val jsonDF = sqlContext.read.schema(schema).json(System.getProperty("user.dir") +"\\src\\test\\resources\\test.txt")
+    import sqlContext.implicits._
 
+
+//
+//    val actorDF = jsonDF.select("actor.*").show()
+//    val authorDF = jsonDF.select("payload.commits.author").show()
+//    val repoDF = jsonDF.select("repo").show()
+//    val typeDF = jsonDF.select("type").show()
+
+
+    val w = new FileWriter(System.getProperty("user.dir") +"\\src\\test\\resources\\data.csv")
+    val writer : CSVWriter = new CSVWriter(w, CSVWriter.DEFAULT_SEPARATOR)
+
+    val jsonRDD = jsonDF.as[Wrapper_].rdd
+     val jsonRDDArray = jsonRDD.collect().map(x => x.toString)
+    writer.writeNext(jsonRDDArray)
     //   val JsonDfActor = sqlContext.read.json("C:\\Users\\kevin\\Desktop\\json\\actor.json");
     //   val rdd = JsonDfActor.as[Actor].rdd
     //   rdd.foreach(println)
