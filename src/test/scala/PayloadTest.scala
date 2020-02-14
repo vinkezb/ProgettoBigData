@@ -20,6 +20,8 @@ class FinaleTest extends  FlatSpec  with Matchers {
     val rdd = JsonDfPayload.as[Payload].rdd
     rdd.foreach(println)
 
+
+
     assert(true)
   }
 }

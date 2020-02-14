@@ -5,7 +5,6 @@ case class Wrapper_(
                     created_at: String,
                     id: String,
                     org: Org,
-                    public: Boolean,
                     repo: Repo,
-                    typeWrapper: String
+                      `type`: String
 )
