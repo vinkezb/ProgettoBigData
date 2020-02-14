@@ -1,3 +1,4 @@
+import classes.Creator
 import org.apache.spark.{SparkConf, SparkContext}
 import org.apache.spark.sql.SQLContext
 import org.scalatest.{FlatSpec, Matchers}
