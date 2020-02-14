@@ -25,28 +25,29 @@ object MainClasseAndrea {
     //    val sqlContext = new HiveContext(sc)
     val schema = ScalaReflection.schemaFor[Wrapper].dataType.asInstanceOf[StructType]
     val url = "http://data.githubarchive.org/" + readProperties().getProperty("anno") + "-" + readProperties().getProperty("mese") + "-" + readProperties().getProperty("giorno") + "-" + "0.json.gz"
-    val unzippedFile = connection(url) //download and unzip file
+   // val unzippedFile = connection(url) //download and unzip file
     val spark = SparkSession.builder.config(conf).getOrCreate()
 
     val jsonDF = spark.read.schema(schema).json(System.getProperty("user.dir") +"\\src\\test\\resources\\test.txt")
     import spark.sqlContext.implicits._
 
+   val actorDF = jsonDF.select("actor").show()
+    val authorDF = jsonDF.select($"payload.commits.author")
+    setCSVFileForDF("actor", authorDF)
+ // val authorDF = jsonDFsmall.select($"payload.commit.author").show()
 
-
-    val actorDF = jsonDF.select("actor")
-    //    val authorDF = jsonDF.select("payload.commits.author").show()
     //    val repoDF = jsonDF.select("repo").show()
     //    val typeDF = jsonDF.select("type").show()
 
 
     //    setCSVFILEforDF("data", jsonDF)
-    setCSVFileForDF("actor", actorDF)
+
+//    setCSVFileForDF("author", authorDF)
 
     //    val actorRDD = jsonDF.as[Actor].rdd
     //    val actorRDDtoArray = actorRDD.collect().map(x => x.toString)
 
 
-    //   val JsonDfActor = sqlContext.read.json("C:\\Users\\kevin\\Desktop\\json\\actor.json");
     //   val rdd = JsonDfActor.as[Actor].rdd
     //   rdd.foreach(println)
 
