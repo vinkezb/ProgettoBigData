@@ -1,6 +1,6 @@
 package classes
 
-import org.apache.spark.sql.functions.explode
+import org.apache.spark.sql.functions._
 import org.apache.spark.sql.hive.HiveContext
 import org.apache.spark.{SparkConf, SparkContext}
 
@@ -22,9 +22,13 @@ object MainClasseKevin {
    val numeroCommit = println(DfJson.select($"Payload.commits").count())
 
    //numero commits per author
-   val numeroCommitAttore = DfJson.withColumn("author",  explode($"payload.commits.author")).groupBy($"payload.commits.author").count().show(10)
+   val numeroCAttori = DfJson.withColumn("author", $"payload.commits.author".cast("String").as("author")).groupBy($"author").count()
 
+   //numero commit per type
+   val numeroCommitAutoreType = DfJson.withColumn("type" ,$"Type".as("type")).groupBy( $"type").count()
 
-   val numeroCommitAttoreType = DfJson.select($"payload.member.type", $"payload.commits.author").groupBy($"payload.member.type",$"payload.commits.author").count().show(12)
+  //numero commit divisi per type e author
+   val divisiAT = DfJson.select($"Actor".as("actor"), $"Type".as("type")).groupBy($"actor", $"type").count().show(30)
+
  }
 }
