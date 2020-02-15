@@ -4,7 +4,7 @@ case class Payload (
                    action: String,
                    before: String,
                    comment: Comment,
-                   commit: Commit,
+                   commits: Array[Commit],
                    description: String,
                    distinct_size: Option[Long],
                    forkee: Forkee,
